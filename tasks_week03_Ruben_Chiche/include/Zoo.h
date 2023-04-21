@@ -23,7 +23,7 @@ private:
 	void move(size_t) const;
 	void create(string, string);
 	void del(size_t);
-	void dellAll();
+	void dellAll(string);
 	void help() const;
 	void point() const;
 	void map() const;

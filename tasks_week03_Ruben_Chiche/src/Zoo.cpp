@@ -74,7 +74,10 @@ void Zoo::run()
 		break;
 		case 4:
 		{
-			dellAll();
+			string type;
+			cout << "Choose an animal" << endl << ">> ";
+			cin >> type;
+			dellAll(type);
 		}
 		break;
 		case 5:
@@ -149,10 +152,21 @@ void Zoo::del(size_t index)
 	animals.erase(animals.begin() + index);
 }
 
-//delete all the animals
-void Zoo::dellAll()
+//delete all the animals of a specific type
+void Zoo::dellAll(string type)
 {
-	animals.clear();
+	if (type != "Lion" && type != "Dog" && type != "Shark")
+		return;
+
+	
+	string clType = "class " + type;
+
+	for (auto i = animals.begin(); i != animals.end(); )
+		if (*i && typeid(**i).name() == clType)
+			i = animals.erase(i);
+		else
+			++i;
+
 }
 
 // print all available operations
@@ -163,7 +177,7 @@ void Zoo::help() const
 	cout << "1  -> [move] if stopped, make the animal move, args(index_of_the_animal: int)" << endl;
 	cout << "2  -> [create] create a new animal, args(type_of_the_animal (Lion,Dog,Shark): string, name_of_the_animal: string)" << endl;
 	cout << "3  -> [del] delete an animal, args(index_of_the_animal: int)" << endl;
-	cout << "4  -> [dellAll] delete all the animals" << endl;
+	cout << "4  -> [dellAll] delete all the animals of a specific type, args(type_of_the_animal (Lion,Dog,Shark): string)" << endl;
 	cout << "5  -> [help] print all the available operations" << endl;
 	cout << "6  -> [exit] quit the program" << endl;
 	cout << "7  -> [.] make a step to all the animals" << endl;
