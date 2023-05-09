@@ -15,7 +15,7 @@ set (CMAKE_CXX_STANDARD_REQUIRED ON)
 set (CMAKE_CXX_EXTENSIONS OFF)
 if (MSVC)
 	add_compile_options (/W4 /permissive- /Zc:externConstexpr /Zc:inline)
-endif ()
+endif () 
 
 
 add_executable (tasks_week03_Ruben_Chiche "" )
