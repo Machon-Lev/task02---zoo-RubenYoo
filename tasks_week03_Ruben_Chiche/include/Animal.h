@@ -16,6 +16,9 @@ public:
 	// constructor
 	Animal(const string&, const Location&);
 
+	// destructor
+	virtual ~Animal() = default;
+
 	// pure virtual methods
 	virtual char getInitial() const = 0;
 	virtual void step() = 0;

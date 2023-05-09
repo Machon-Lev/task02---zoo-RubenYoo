@@ -5,6 +5,18 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+// constructor
+Zoo::Zoo()
+{
+	_option = -1;
+
+	create("Lion", "Simba");
+	create("Lion", "Mufasa");
+	create("Dog", "Toto");
+	create("Shark", "Jaws");
+
+}
+
 // run the zoo
 void Zoo::run()
 {
@@ -20,12 +32,7 @@ void Zoo::run()
 	cout << "                                                  " << endl;
       
 	SetConsoleTextAttribute(hConsole, 15);
-	size_t option;
-
-	create("Lion", "Simba");
-	create("Lion", "Mufasa");
-	create("Dog", "Toto");
-	create("Shark", "Jaws");
+	
 
 	do
 	{
@@ -34,9 +41,9 @@ void Zoo::run()
 
 		cout << "Which operation you want?" << endl;
 		cout << ">> ";
-		cin >> option;
+		cin >> _option;
 
-		switch (option)
+		switch (_option)
 		{
 		case 0:
 		{
@@ -108,9 +115,10 @@ void Zoo::run()
 		}
 		break;
 		}
-	} while (option != 6);
+	} while (_option != 6);
 
 }
+
 
 // stop an animal
 void Zoo::stop(size_t index) const

@@ -14,9 +14,16 @@ public:
 	// public method
 	void run();
 
+	// constructor
+	Zoo();
+
+	// destructor
+	~Zoo() = default;
+
 private:
 	// private vector of animals
 	vector<unique_ptr<Animal>> animals;
+	size_t _option;
 
 	// private methods
 	void stop(size_t) const;
